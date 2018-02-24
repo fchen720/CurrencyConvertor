@@ -1,0 +1,35 @@
+.currencyConvertorContainer{
+  font-family: Arial, Helvetica, sans-serif;
+  border-style: solid;
+  display: inline-block;
+  padding: 20px;
+
+  h3{
+    margin: 0;
+    padding-bottom: 5px;
+  }
+  a{
+    float: right;
+  }
+  input{
+    box-sizing: border-box;
+    width: 70%;
+  }
+  select{
+    box-sizing: border-box;
+    width: 30%;
+  }
+  .inputGroup{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  @media (max-width:500px){
+    input{
+      width: 100%;
+    }
+    select{
+      width: 100%;
+    }
+  }
+}

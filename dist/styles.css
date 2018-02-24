@@ -1,0 +1,38 @@
+.currencyConvertorContainer{
+  font-family: Arial, Helvetica, sans-serif;
+  border-style: solid;
+  display: inline-block;
+  padding: 20px;
+}
+.currencyConvertorContainer h3{
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.currencyConvertorContainer a{
+  float: right;
+}
+
+.currencyConvertorContainer input{
+  box-sizing: border-box;
+  width: 70%;
+}
+
+.currencyConvertorContainer select{
+  box-sizing: border-box;
+  width: 30%;
+}
+
+.currencyConvertorContainer .inputGroup{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media (max-width:500px){
+  .currencyConvertorContainer input{
+    width: 100%;
+  }
+  .currencyConvertorContainer select{
+    width: 100%;
+  }
+}
