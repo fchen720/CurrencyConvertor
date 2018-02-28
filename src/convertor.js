@@ -41,7 +41,6 @@
     }
 
     var updateCurrencyValues = function(){
-      console.log(currencies);
       if(lastChanged == FIRST){
         updateSecondCurrencyValue();
       }
@@ -60,7 +59,6 @@
           var temp = JSON.parse(xhr.responseText);
           var retrievedBaseCurrency = temp.base;
           var retrievedTargetCurrency = Object.keys(temp.rates)[0];
-          console.log(temp);
 
           // Make sure that the received response satisfies the most recent requirements
           if(retrievedBaseCurrency == firstCurrencyNam && retrievedTargetCurrency == secondCurrencyNam){
@@ -89,6 +87,7 @@
         if(Date.now() - currentEntry.timeStamp >= DATA_LIFE_SPAN){
           sendXhrRequest();
         }else{
+          conversion = currentEntry.rate;
           updateCurrencyValues();
         }
       }

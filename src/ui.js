@@ -13,7 +13,7 @@
     }
 
     // Returns float representation of input to the specified number of decimal places
-    function numeric(text){
+    var numeric = function(text){
       if(text === ""){
         var zero = 0;
         return zero.toFixed(this.decimalPlaces);
@@ -21,7 +21,7 @@
       else{
         return parseFloat(text).toFixed(this.decimalPlaces);
       }
-    }
+    }.bind(this);
 
     // Returns selector DOM element with specified options, and selected option
     function createSelectElement(options, selected){
@@ -75,7 +75,6 @@
     disclaimer.href = "#";
     disclaimer.textContent = "Disclaimer";
     disclaimer.addEventListener('click', function(e){
-      console.log('clicked')
       e.preventDefault();
       alert('This exchange rate is provided by http://fixer.io/');
     });
