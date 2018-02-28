@@ -4,6 +4,7 @@
     // The lifespan of a retrieved currency exchange rate, before refetching is necessary
     var DATA_LIFE_SPAN = 20000;
     var lastChanged = NOTHING;
+    var refreshTimeout = null;
     var conversion;
     this.onFinish = null;
 
@@ -65,6 +66,12 @@
             conversion = temp.rates[retrievedTargetCurrency];
             currencies.store(firstCurrencyNam, secondCurrencyNam, conversion);
             updateCurrencyValues();
+            // set timer to auto update exchange rate
+            clearTimeout(refreshTimeout);
+            refreshTimeout = setTimeout(function(){
+                sendXhrRequest();
+              }
+              , DATA_LIFE_SPAN);
           }
         // On fail
         }else if(this.status == 404){
