@@ -87,11 +87,28 @@
     //
     // SET UP PUBLIC API
     //
+
+    function validate(){
+      if(firstGroup.field.value < 0){
+        firstGroup.field.value = 0;
+      }
+      if(secondGroup.field.value < 0){
+        secondGroup.field.value = 0;
+      }
+    }
     this.firstFieldOnChange = function(callBack){
-      firstGroup.field.addEventListener('input',callBack);
+      firstGroup.field.addEventListener('input',function(){
+          validate();
+          callBack();
+        }
+      );
     };
     this.secondFieldOnChange = function(callBack){
-      secondGroup.field.addEventListener('input',callBack);
+      secondGroup.field.addEventListener('input',function(){
+          validate();
+          callBack();
+        }
+      );
     };
     this.firstCurrencyOnChange = function(callBack){
       firstGroup.selector.addEventListener('change',callBack);
